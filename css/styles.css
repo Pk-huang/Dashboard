@@ -1,0 +1,70 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Helvetica", "Arial", sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+
+  }
+  
+  /* Header */
+  .header {
+    background-color: #ffffff;
+    color: #3590b1;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+  .header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1800px;
+    margin: 0 auto;  
+} 
+  
+  /* Dashboard Main Area */
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    flex: 1;
+    max-width: 1800px;
+    margin: 2em auto;
+  }
+  
+  /* Cards */
+  .card {
+    background: white;
+    border-radius: 8px;
+    aspect-ratio: 1/1.25;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+    background-color: #ddd;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .dashboard {
+      grid-template-columns: 1fr;
+    }
+  }
+  
