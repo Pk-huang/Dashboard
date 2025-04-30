@@ -23,7 +23,7 @@ export async function fetchRandomQuote() {
   try {
     const response = await fetch(url)
     if (!response.ok) throw new Error("Can't get Quote")
-console.log(response)
+
     return await response.json()
 
   } catch (err) {

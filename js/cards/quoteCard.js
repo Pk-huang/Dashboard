@@ -8,7 +8,6 @@ export function quoteCard() {
   async function renderQuote() {
       try{
         const data =  await fetchRandomQuote()
-        console.log(data)
 
         quoteCard.innerHTML= ` <blockquote>"${data.content}"</blockquote>
         <p>— ${data.author}</p>
