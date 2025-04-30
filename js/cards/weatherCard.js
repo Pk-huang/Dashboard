@@ -8,9 +8,12 @@ export async function weatherCard() {
 
   try {
     const weatherData =  await GeoWeather();
-    console.log('weatherData' , weatherData);
+    const iconCode = weatherData.weather[0].icon;
+    const isNight = iconCode.endsWith('n');
 
-    weatherCard.innerHTML = ` <h2>🌤️ ${weatherData.name}</h2>
+    const iconEmoji = isNight ? '🌙' : '☀️';
+
+    weatherCard.innerHTML = ` <h2>${iconEmoji} ${weatherData.name}</h2>
       <p>氣溫：${weatherData.main.temp}°C</p>
       <p>天氣：${weatherData.weather[0].description}</p>`
 
