@@ -100,4 +100,29 @@
   }
   
   
+  #currency-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0.5rem;
+  }
+  
+  #currency-card th,
+  #currency-card td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  #currency-card th {
+    background-color: #f0f0f0;
+  }
+  
+  #refresh-rate {
+    padding: 0.3rem 0.6rem;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
   

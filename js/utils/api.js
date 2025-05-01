@@ -1,9 +1,9 @@
-const API_KEY = "d67a906df3f7b73e26ea640be6c92395"
+const Weather_API_KEY = "d67a906df3f7b73e26ea640be6c92395"
 
 
 export async function fetchWeatherByPosition(lat, lon) {
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${Weather_API_KEY}&units=metric`;
 
   try {
     const response = await fetch(url)
@@ -30,4 +30,27 @@ export async function fetchRandomQuote() {
     console.log("Fetch quote failed:", err)
   }
 
+}
+const Currency_API_KEY = '52U7VnndYVtYPDwWBJ0NOG0Zv2bRZujT';
+export async function fetchCExchangeRates(base = 'USD', targets = ['TWD', 'JPY', 'EUR']) {
+  const symbols = targets.join(",")
+  const url = `https://api.apilayer.com/exchangerates_data/latest?base=${base}&symbols=${symbols}`;
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        apikey: Currency_API_KEY
+      }
+    })
+
+    if (!response.ok) throw new Error("can't get data for Exchange")
+
+      let rep = response.json()
+      console.log(rep)
+    return await response.json()
+
+  } catch (err) {
+    console.error('Fetch exchange rates failed:', err)
+    throw err
+  }
 }

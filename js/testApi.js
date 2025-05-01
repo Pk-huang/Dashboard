@@ -1,5 +1,5 @@
 async function testQuoteAPI() {
-    const url = 'https://api.quotable.io/random';
+    const url = 'https://api.exchangerate.host/latest?base=USD&symbols=TWD,JPY,EUR';
   
     try {
       const res = await fetch(url);
@@ -25,3 +25,41 @@ async function testQuoteAPI() {
   
   testQuoteAPI();
   
+
+
+  import { fetchExchangeRates } from '../utils/api.js';
+
+export function currencyCard() {
+  const card = document.getElementById('currency-card');
+  card.innerHTML = '載入中...';
+
+  async function renderRates() {
+    card.innerHTML = '載入中...';
+    try {
+      const data = await fetchExchangeRates();
+      const rates = data.rates;
+
+      let tableHTML = `
+        <h2>💱 匯率（Base: ${data.base}）</h2>
+        <table>
+          <thead>
+            <tr><th>幣別</th><th>匯率</th></tr>
+          </thead>
+          <tbody>
+            ${Object.entries(rates).map(
+              ([code, rate]) => `<tr><td>${code}</td><td>${rate.toFixed(2)}</td></tr>`
+            ).join('')}
+          </tbody>
+        </table>
+        <button id="refresh-rate">重新整理</button>
+      `;
+
+      card.innerHTML = tableHTML;
+      document.getElementById('refresh-rate').addEventListener('click', renderRates);
+    } catch (err) {
+      card.innerHTML = `<p>⚠️ 無法取得匯率資料</p>`;
+    }
+  }
+
+  renderRates();
+}
