@@ -24,5 +24,3 @@ export async function weatherCard() {
   }
 }
  
-
- console.log('weatherCard module loaded');

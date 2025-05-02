@@ -51,3 +51,27 @@ export async function fetchCExchangeRates(base = 'USD', targets = ['TWD', 'JPY',
     throw err
   }
 }
+
+
+const Horoscope_API_KEY = 'PvTzyG44A82/h9WOYNnlrA==oaZ7VQT5uhYmsteB';
+export async function fetchCHoroscope(sign) {
+
+  const url = `https://api.api-ninjas.com/v1/horoscope?zodiac=${sign}`;
+
+
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'X-Api-Key': Horoscope_API_KEY
+      }
+    })
+
+    if (!response.ok) throw new Error("can't get data for Horoscop")
+    return await response.json()
+
+  } catch (err) {
+    console.error('Fetch Horoscop rates failed:', err)
+    throw err
+  }
+}
