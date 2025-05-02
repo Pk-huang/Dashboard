@@ -44,9 +44,6 @@ export async function fetchCExchangeRates(base = 'USD', targets = ['TWD', 'JPY',
     })
 
     if (!response.ok) throw new Error("can't get data for Exchange")
-
-      let rep = response.json()
-      console.log(rep)
     return await response.json()
 
   } catch (err) {
