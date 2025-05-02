@@ -125,4 +125,32 @@
     border-radius: 6px;
     cursor: pointer;
   }
+
+  #todo-card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  #todo-card li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  #todo-card button {
+    margin-left: 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #todo-card input {
+    padding: 0.3rem;
+    width: 70%;
+    margin-right: 0.5rem;
+  }
+  
   
